@@ -9,21 +9,22 @@
   <link rel="apple-touch-icon" href="1024.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <!-- AOS Animation Library -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <!-- FontAwesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --primary-color: #5f2c82;
-      --secondary-color: #ff416c;
-      --accent-color: #49c5b6;
-      --text-color: #333;
-      --light-bg: #f8f9fd;
+      --primary-color: #0071e3;
+      --secondary-color: #86c2ff;
+      --accent-color: #ff375f;
+      --text-color: #1d1d1f;
+      --text-secondary: #6e6e73;
+      --light-bg: #fbfbfd;
       --card-bg: #ffffff;
-      --shadow: 0 8px 30px rgba(0,0,0,0.05);
-      --border-radius: 12px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+      --border-radius: 20px;
     }
 
     * {
@@ -33,157 +34,145 @@
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--light-bg);
       color: var(--text-color);
-      line-height: 1.8;
+      line-height: 1.5;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     /* Header Section */
     header {
-      background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-      color: #fff;
-      padding: 80px 20px;
+      background: var(--light-bg);
+      color: var(--text-color);
+      padding: 120px 20px 80px;
       text-align: center;
       position: relative;
       overflow: hidden;
     }
 
-    header:before {
-      content: "";
-      position: absolute;
-      width: 200%;
-      height: 200%;
-      top: -50%;
-      left: -50%;
-      background: radial-gradient(rgba(255,255,255,0.1) 8%, transparent 8%);
-      background-position: 0 0;
-      background-size: 30px 30px;
-      opacity: 0.3;
-      transform: rotate(30deg);
-      animation: backgroundShift 15s linear infinite;
-    }
-
-    @keyframes backgroundShift {
-      0% {
-        background-position: 0 0;
-      }
-      100% {
-        background-position: 100px 100px;
-      }
+    header .container {
+      max-width: 980px;
     }
 
     .logo-container {
-      margin-bottom: 20px;
+      margin-bottom: 40px;
       position: relative;
       z-index: 1;
     }
 
     .app-logo {
-      width: 120px;
-      height: 120px;
-      border-radius: 24px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      transform: perspective(800px) rotateY(10deg);
-      transition: transform 0.5s ease;
-      animation: float 4s ease-in-out infinite;
-    }
-
-    .app-logo:hover {
-      transform: perspective(800px) rotateY(-10deg);
+      width: 140px;
+      height: 140px;
+      border-radius: 32px;
+      box-shadow: var(--shadow);
+      transition: all 0.5s ease;
+      transform: translateY(0px);
+      animation: float 6s ease-in-out infinite;
     }
 
     @keyframes float {
       0% {
-        transform: perspective(800px) rotateY(10deg) translateY(0px);
+        transform: translateY(0px);
       }
       50% {
-        transform: perspective(800px) rotateY(-5deg) translateY(-15px);
+        transform: translateY(-15px);
       }
       100% {
-        transform: perspective(800px) rotateY(10deg) translateY(0px);
+        transform: translateY(0px);
       }
     }
 
     header h1 {
-      font-size: 3.5em;
-      margin-bottom: 15px;
+      font-size: 5em;
+      margin-bottom: 20px;
       font-weight: 700;
-      position: relative;
-      z-index: 1;
-      background-image: linear-gradient(90deg, #ffffff, #e6e6ff);
+      letter-spacing: -0.02em;
+      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      text-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
     header p {
-      font-size: 1.3em;
-      opacity: 0.95;
+      font-size: 1.5em;
+      font-weight: 400;
+      color: var(--text-secondary);
       max-width: 700px;
-      margin: 0 auto 25px;
-      position: relative;
-      z-index: 1;
+      margin: 0 auto 40px;
+      line-height: 1.4;
     }
 
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-top: 30px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .button {
-      display: inline-block;
-      background: #fff;
-      color: var(--primary-color);
-      padding: 16px 32px;
-      border-radius: var(--border-radius);
+    .appstore-button {
+      display: inline-flex;
+      align-items: center;
+      background: var(--primary-color);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 30px;
       font-weight: 600;
       text-decoration: none;
       transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      border: none;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
+      font-size: 1.1em;
+      letter-spacing: -0.01em;
     }
 
-    .button:before {
-      content: '';
+    .appstore-button:hover {
+      background: #0062cc;
+      transform: scale(1.05);
+    }
+
+    .appstore-button i {
+      margin-right: 8px;
+      font-size: 1.2em;
+    }
+
+    /* Language switcher */
+    .language-switcher {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.2), rgba(255,255,255,0));
-      transform: translateX(-100%);
-      transition: transform 0.6s ease;
+      top: 40px;
+      right: 40px;
+      display: flex;
+      align-items: center;
+      z-index: 100;
     }
 
-    .button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    }
-    
-    .button:hover:before {
-      transform: translateX(100%);
-    }
-
-    .button.primary {
-      background: #fff;
-      color: var(--primary-color);
-    }
-
-    .button.secondary {
+    .language-switcher-toggle {
       background: rgba(255,255,255,0.2);
-      color: #fff;
-      backdrop-filter: blur(5px);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: none;
+      border-radius: 20px;
+      padding: 8px 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      color: var(--text-color);
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .language-switcher-toggle:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    .language-switcher-toggle i {
+      margin-right: 8px;
+    }
+
+    .language-option {
+      margin: 0 5px;
+      opacity: 0.6;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .language-option.active {
+      opacity: 1;
+      font-weight: bold;
     }
 
     /* Feature Section */
@@ -194,238 +183,351 @@
     }
 
     section {
-      padding: 70px 0;
+      padding: 120px 0;
+      position: relative;
+    }
+
+    section:nth-child(odd) {
+      background-color: white;
     }
 
     .section-title {
       text-align: center;
-      margin-bottom: 50px;
-      font-size: 2.2em;
-      color: var(--primary-color);
+      margin-bottom: 20px;
+      font-size: 3.5em;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-color);
       position: relative;
     }
 
-    .section-title:after {
-      content: "";
-      position: absolute;
-      width: 70px;
-      height: 4px;
-      background: var(--secondary-color);
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      border-radius: 2px;
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.5em;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto 60px;
+      font-weight: 400;
     }
 
     /* Features Grid */
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 50px;
+      margin-top: 60px;
     }
 
     .feature-card {
       background: var(--card-bg);
       border-radius: var(--border-radius);
-      padding: 30px;
+      padding: 40px;
       box-shadow: var(--shadow);
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
       border: 1px solid rgba(0,0,0,0.05);
       position: relative;
       overflow: hidden;
-    }
-
-    .feature-card:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
-      opacity: 0;
-      transition: all 0.3s ease;
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
     }
 
     .feature-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    }
-
-    .feature-card:hover:before {
-      opacity: 1;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     }
 
     .feature-icon {
-      font-size: 2.5em;
-      margin-bottom: 20px;
+      font-size: 2em;
+      margin-bottom: 24px;
       color: var(--primary-color);
-      height: 60px;
       display: flex;
       align-items: center;
-      justify-content: center;
       transition: transform 0.3s ease;
     }
 
-    .feature-card:hover .feature-icon {
-      transform: scale(1.1);
-    }
-
     .feature-title {
-      font-size: 1.4em;
-      margin-bottom: 15px;
-      color: var(--primary-color);
+      font-size: 1.8em;
+      margin-bottom: 16px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text-color);
     }
 
     .feature-desc {
-      color: #666;
-      font-size: 1.05em;
+      color: var(--text-secondary);
+      font-size: 1.1em;
+      line-height: 1.6;
+      flex-grow: 1;
     }
 
     /* Screenshots */
     .screenshots {
-      background: linear-gradient(to bottom, #fff, var(--light-bg));
+      background: white;
       text-align: center;
       position: relative;
+      overflow: hidden;
+    }
+
+    .screenshots::before {
+      content: '';
+      position: absolute;
+      width: 1000px;
+      height: 1000px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(134, 194, 255, 0.1), rgba(0, 113, 227, 0.05));
+      top: -300px;
+      left: -300px;
+      z-index: 0;
+    }
+
+    .screenshots::after {
+      content: '';
+      position: absolute;
+      width: 800px;
+      height: 800px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(255, 55, 95, 0.05), rgba(255, 155, 55, 0.1));
+      bottom: -200px;
+      right: -200px;
+      z-index: 0;
     }
 
     .screenshots-container {
       display: flex;
-      gap: 20px;
+      gap: 30px;
       justify-content: center;
-      margin-top: 30px;
+      margin-top: 60px;
       flex-wrap: wrap;
-      perspective: 1000px;
+      position: relative;
+      z-index: 1;
     }
 
     .screenshot {
-      width: 220px;
-      height: 440px;
-      background: #e0e0e0;
-      border-radius: 25px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      width: 240px;
+      height: 480px;
+      background: #000;
+      border-radius: 36px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.12);
       overflow: hidden;
       position: relative;
-      transition: all 0.5s ease;
-      transform: rotateY(10deg);
-      border: 8px solid #333;
+      transition: all 0.6s ease;
+      border: 10px solid #1d1d1f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .screenshot:nth-child(even) {
-      transform: rotateY(-10deg);
+    .screenshot:nth-child(1) {
+      transform: perspective(1200px) rotateY(15deg) translateX(20px);
+    }
+
+    .screenshot:nth-child(3) {
+      transform: perspective(1200px) rotateY(-15deg) translateX(-20px);
     }
 
     .screenshot:hover {
-      transform: rotateY(0) scale(1.05);
-      z-index: 10;
-      box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+      transform: perspective(1200px) rotateY(0) translateZ(30px) scale(1.05);
+      z-index: 2;
+    }
+
+    .screenshot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: all 0.5s ease;
+    }
+
+    .screenshot:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 30px;
+      background: #000;
+      border-top-left-radius: 24px;
+      border-top-right-radius: 24px;
+      z-index: 1;
+    }
+
+    .screenshot:before {
+      content: '';
+      position: absolute;
+      width: 40%;
+      height: 4px;
+      background: #333;
+      top: 12px;
+      left: 30%;
+      border-radius: 4px;
+      z-index: 2;
+    }
+
+    /* Phone device frame notch */
+    .screenshot .notch {
+      position: absolute;
+      width: 50%;
+      height: 18px;
+      background: #000;
+      top: 0px;
+      left: 25%;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      z-index: 3;
+    }
+
+    /* Loading animation for screenshots */
+    @keyframes imageLoading {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .screenshot img {
+      animation: imageLoading 0.8s ease-in-out;
+    }
+
+    /* Privacy Section */
+    .privacy {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .privacy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    
+    .privacy-image {
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    
+    .privacy-image img {
+      width: 100%;
+      display: block;
+    }
+    
+    .privacy-content {
+      padding: 20px;
+    }
+    
+    .privacy-content h3 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    
+    .privacy-content p {
+      font-size: 1.2em;
+      color: var(--text-secondary);
+      margin-bottom: 30px;
+      line-height: 1.6;
     }
 
     /* Languages */
     .languages {
       text-align: center;
-      background: #fff;
-      padding: 40px 0;
       position: relative;
-    }
-
-    .languages:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%235f2c82' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      opacity: 0.5;
-      z-index: 0;
-    }
-
-    .languages .container {
-      position: relative;
-      z-index: 1;
     }
 
     .languages-list {
       display: flex;
       justify-content: center;
-      gap: 30px;
-      margin-top: 20px;
+      gap: 40px;
+      margin-top: 40px;
     }
 
     .language {
-      font-size: 1.2em;
+      font-size: 1.4em;
       font-weight: 500;
-      padding: 15px 30px;
-      background: rgba(255,255,255,0.8);
+      padding: 24px 40px;
+      background: var(--card-bg);
       border-radius: var(--border-radius);
       box-shadow: var(--shadow);
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
     }
 
     .language:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    }
-
-    /* Privacy */
-    .privacy {
-      background: var(--light-bg);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .privacy:after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 200px;
-      height: 200px;
-      background: radial-gradient(circle, var(--secondary-color) 0%, transparent 70%);
-      opacity: 0.1;
-      border-radius: 50%;
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     }
 
     /* Footer */
     footer {
-      background: linear-gradient(135deg, var(--primary-color), #3a1c50);
-      color: rgba(255,255,255,0.9);
+      background: var(--light-bg);
+      color: var(--text-secondary);
       text-align: center;
-      padding: 40px 20px;
+      padding: 60px 20px;
       margin-top: 0;
       position: relative;
       overflow: hidden;
+      border-top: 1px solid rgba(0,0,0,0.05);
     }
 
-    footer:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v20H0V0zm10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-      opacity: 0.3;
+    footer .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    footer p {
+      font-size: 1.1em;
+      margin-bottom: 8px;
     }
 
     footer a {
-      color: #fff;
+      color: var(--primary-color);
       text-decoration: none;
-      border-bottom: 1px dotted rgba(255,255,255,0.5);
       transition: all 0.3s ease;
     }
 
     footer a:hover {
-      border-bottom: 1px solid #fff;
-      color: var(--accent-color);
+      text-decoration: underline;
     }
 
     /* Responsive */
-    @media (max-width: 768px) {
+    @media (max-width: 980px) {
       header h1 {
-        font-size: 2.5em;
+        font-size: 3.5em;
+      }
+      
+      header p {
+        font-size: 1.3em;
+      }
+      
+      .section-title {
+        font-size: 2.8em;
+      }
+      
+      .section-subtitle {
+        font-size: 1.3em;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .privacy-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .screenshot {
+        width: 200px;
+        height: 400px;
+      }
+    }
+    
+    @media (max-width: 640px) {
+      header {
+        padding: 80px 20px 60px;
+      }
+      
+      header h1 {
+        font-size: 2.8em;
       }
       
       header p {
@@ -433,41 +535,43 @@
       }
       
       .section-title {
-        font-size: 1.8em;
-      }
-      
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .screenshot {
-        width: 180px;
-        height: 360px;
+        font-size: 2.2em;
       }
       
       .app-logo {
         width: 100px;
         height: 100px;
+        border-radius: 22px;
+      }
+      
+      .screenshot {
+        transform: none !important;
+        width: 180px;
+        height: 360px;
+      }
+      
+      section {
+        padding: 80px 0;
       }
     }
     
-    /* Scroll animation */
+    /* Back to top button */
     .back-to-top {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      bottom: 30px;
+      right: 30px;
       background: var(--primary-color);
       color: white;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
+      width: 56px;
+      height: 56px;
+      border-radius: 28px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
       opacity: 0;
       pointer-events: none;
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
       z-index: 999;
     }
@@ -478,65 +582,145 @@
     }
     
     .back-to-top:hover {
-      background: var(--secondary-color);
       transform: translateY(-5px);
+      background: #0062cc;
+    }
+
+    /* Parallax effect */
+    .parallax-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .parallax-dot {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--primary-color);
+      opacity: 0.05;
+    }
+
+    .dot-1 {
+      width: 300px;
+      height: 300px;
+      top: -100px;
+      right: -100px;
+    }
+
+    .dot-2 {
+      width: 200px;
+      height: 200px;
+      bottom: -50px;
+      left: -50px;
+      background: var(--accent-color);
+    }
+
+    .dot-3 {
+      width: 400px;
+      height: 400px;
+      top: 40%;
+      left: -200px;
+      opacity: 0.03;
+    }
+
+    .dot-4 {
+      width: 250px;
+      height: 250px;
+      bottom: 10%;
+      right: -100px;
+      background: var(--secondary-color);
+    }
+
+    /* App Store badge style */
+    .app-store-badge {
+      display: block;
+      margin: 40px auto 0;
+      height: 48px;
+      transition: transform 0.3s ease;
+    }
+
+    .app-store-badge:hover {
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
+  <div class="language-switcher">
+    <div class="language-switcher-toggle">
+      <i class="fas fa-globe"></i>
+      <span class="language-option active" data-lang="vi">Tiếng Việt</span> | 
+      <span class="language-option" data-lang="en">English</span>
+    </div>
+  </div>
 
   <header>
+    <div class="parallax-bg">
+      <div class="parallax-dot dot-1"></div>
+      <div class="parallax-dot dot-2"></div>
+    </div>
     <div class="container">
-      <div class="logo-container">
+      <div class="logo-container" data-aos="fade-up">
         <img src="1024.png" alt="Troll Sounds App Logo" class="app-logo">
       </div>
-      <h1 data-aos="fade-up">Troll Sounds</h1>
-      <p data-aos="fade-up" data-aos-delay="100">Ultimate meme soundboard, voice changer, and prank app - bring laughter and fun to any situation!</p>
-      <div class="buttons" data-aos="fade-up" data-aos-delay="200">
-        <a class="button primary" href="#"><i class="fab fa-apple"></i> Coming Soon to App Store</a>
-        <a class="button secondary" href="#"><i class="fas fa-flask"></i> Join Beta Program</a>
+      <h1 data-aos="fade-up" data-i18n="header-title">Troll Sounds</h1>
+      <p data-aos="fade-up" data-aos-delay="100" data-i18n="header-description">Tận hưởng kho âm thanh hài hước, trình chỉnh giọng nói, và các công cụ troll độc đáo trên thiết bị của bạn.</p>
+      <div data-aos="fade-up" data-aos-delay="200">
+        <a href="https://apps.apple.com/vn/app/troll-sounds/id6745689125" class="appstore-button">
+          <i class="fab fa-apple"></i> <span data-i18n="app-store-button">Tải trên App Store</span>
+        </a>
       </div>
+      <a href="https://apps.apple.com/vn/app/troll-sounds/id6745689125" data-aos="fade-up" data-aos-delay="300">
+        <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" alt="Download on the App Store" class="app-store-badge">
+      </a>
     </div>
   </header>
 
   <section class="features">
+    <div class="parallax-bg">
+      <div class="parallax-dot dot-3"></div>
+    </div>
     <div class="container">
-      <h2 class="section-title" data-aos="fade-up">Awesome Features</h2>
+      <h2 class="section-title" data-aos="fade-up" data-i18n="features-title">Tính năng nổi bật</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-i18n="features-subtitle">Troll Sounds cung cấp trải nghiệm giải trí độc đáo với nhiều công cụ thú vị</p>
       <div class="features-grid">
         <div class="feature-card" data-aos="fade-up">
           <div class="feature-icon"><i class="fas fa-volume-up"></i></div>
-          <h3 class="feature-title">Meme Soundboard</h3>
-          <p class="feature-desc">Collection of popular meme sounds and effects that you can play instantly with one tap.</p>
+          <h3 class="feature-title" data-i18n="feature-1-title">Meme Soundboard</h3>
+          <p class="feature-desc" data-i18n="feature-1-desc">Bộ sưu tập âm thanh meme phổ biến và hiệu ứng mà bạn có thể phát ngay lập tức chỉ với một cú chạm.</p>
         </div>
         
         <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
           <div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
-          <h3 class="feature-title">Troll Flash</h3>
-          <p class="feature-desc">Turn your phone's flashlight on and off with sound effects for funny pranks.</p>
-        </div>
-        
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="feature-icon"><i class="fas fa-clock"></i></div>
-          <h3 class="feature-title">Troll Alarm</h3>
-          <p class="feature-desc">Set up fake alarms with custom sounds to prank friends and family.</p>
+          <h3 class="feature-title" data-i18n="feature-2-title">Troll Flash</h3>
+          <p class="feature-desc" data-i18n="feature-2-desc">Bật tắt đèn flash của điện thoại với hiệu ứng âm thanh để tạo ra những trò đùa hài hước.</p>
         </div>
         
         <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="feature-icon"><i class="fas fa-clock"></i></div>
+          <h3 class="feature-title" data-i18n="feature-3-title">Troll Alarm</h3>
+          <p class="feature-desc" data-i18n="feature-3-desc">Thiết lập báo thức giả với âm thanh tùy chỉnh để tạo bất ngờ cho bạn bè và gia đình.</p>
+        </div>
+        
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
           <div class="feature-icon"><i class="fas fa-microphone"></i></div>
-          <h3 class="feature-title">Voice Activated Sounds</h3>
-          <p class="feature-desc">Sounds that trigger when you speak, perfect for surprise reactions during conversations.</p>
+          <h3 class="feature-title" data-i18n="feature-4-title">Âm thanh kích hoạt bằng giọng nói</h3>
+          <p class="feature-desc" data-i18n="feature-4-desc">Âm thanh được kích hoạt khi bạn nói, hoàn hảo cho các phản ứng bất ngờ trong cuộc trò chuyện.</p>
         </div>
         
         <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
           <div class="feature-icon"><i class="fas fa-sliders-h"></i></div>
-          <h3 class="feature-title">Custom Sound Lab</h3>
-          <p class="feature-desc">Create and customize your own sounds and effects to use in the app.</p>
+          <h3 class="feature-title" data-i18n="feature-5-title">Phòng thí nghiệm âm thanh</h3>
+          <p class="feature-desc" data-i18n="feature-5-desc">Tạo và tùy chỉnh âm thanh và hiệu ứng riêng của bạn để sử dụng trong ứng dụng.</p>
         </div>
         
         <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
           <div class="feature-icon"><i class="fas fa-globe"></i></div>
-          <h3 class="feature-title">MyInstants Integration</h3>
-          <p class="feature-desc">Access thousands of sounds from MyInstants directly in the app.</p>
+          <h3 class="feature-title" data-i18n="feature-6-title">Tích hợp MyInstants</h3>
+          <p class="feature-desc" data-i18n="feature-6-desc">Truy cập hàng nghìn âm thanh từ MyInstants trực tiếp trong ứng dụng.</p>
         </div>
       </div>
     </div>
@@ -544,18 +728,51 @@
 
   <section class="screenshots">
     <div class="container">
-      <h2 class="section-title" data-aos="fade-up">App Preview</h2>
+      <h2 class="section-title" data-aos="fade-up" data-i18n="screenshots-title">Xem trước ứng dụng</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-i18n="screenshots-subtitle">Trải nghiệm giao diện hiện đại, dễ sử dụng với các tính năng đa dạng</p>
       <div class="screenshots-container">
-        <div class="screenshot" data-aos="fade-right"></div>
-        <div class="screenshot" data-aos="fade-up"></div>
-        <div class="screenshot" data-aos="fade-left"></div>
+        <div class="screenshot" data-aos="fade-right">
+          <div class="notch"></div>
+          <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/42/7a/df/427adf09-a021-3781-2d6f-b49a3ae7e15f/Simulator_Screenshot_-_iPhone_16_Pro_Max_-_2025-05-17_at_01.55.06.png/460x0w.webp" alt="Troll Sounds App - Màn hình chính">
+        </div>
+        <div class="screenshot" data-aos="fade-up">
+          <div class="notch"></div>
+          <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ed/56/b9/ed56b917-0f0c-14b1-a184-c006fcc1c5db/Simulator_Screenshot_-_iPhone_16_Pro_Max_-_2025-05-17_at_01.58.43.png/460x0w.webp" alt="Troll Sounds App - Các hiệu ứng âm thanh">
+        </div>
+        <div class="screenshot" data-aos="fade-left">
+          <div class="notch"></div>
+          <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/fe/be/83/febe8355-b198-6fbc-d2a0-bc4e58b1dd5d/Simulator_Screenshot_-_iPhone_16_Pro_Max_-_2025-05-17_at_01.55.46.png/460x0w.webp" alt="Troll Sounds App - Tùy chỉnh và cài đặt">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="privacy">
+    <div class="parallax-bg">
+      <div class="parallax-dot dot-4"></div>
+    </div>
+    <div class="container">
+      <div class="privacy-grid">
+        <div class="privacy-content">
+          <h3 data-aos="fade-up" data-i18n="privacy-title">Quyền riêng tư trên hết</h3>
+          <p data-aos="fade-up" data-aos-delay="100" data-i18n="privacy-description">
+            <strong>Troll Sounds tôn trọng quyền riêng tư của bạn.</strong> Chúng tôi không thu thập dữ liệu cá nhân, thông tin vị trí, hoặc thói quen duyệt web. Tất cả các tính năng của ứng dụng đều hoạt động cục bộ trên thiết bị của bạn.
+          </p>
+          <div data-aos="fade-up" data-aos-delay="200">
+            <a href="#" class="appstore-button"><i class="fas fa-shield-alt"></i> <span data-i18n="privacy-button">Chính sách Quyền riêng tư</span></a>
+          </div>
+        </div>
+        <div class="privacy-image" data-aos="fade-left">
+          <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/PII_Hero_Image.width-1300.png" alt="Privacy First">
+        </div>
       </div>
     </div>
   </section>
 
   <section class="languages">
     <div class="container">
-      <h2 class="section-title" data-aos="fade-up">Available Languages</h2>
+      <h2 class="section-title" data-aos="fade-up" data-i18n="languages-title">Ngôn ngữ hỗ trợ</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-i18n="languages-subtitle">Troll Sounds hiện có sẵn trong các ngôn ngữ sau</p>
       <div class="languages-list">
         <div class="language" data-aos="zoom-in">🇺🇸 English</div>
         <div class="language" data-aos="zoom-in" data-aos-delay="100">🇻🇳 Tiếng Việt</div>
@@ -563,23 +780,16 @@
     </div>
   </section>
 
-  <section class="privacy">
-    <div class="container">
-      <h2 class="section-title" data-aos="fade-up">Privacy First</h2>
-      <p style="text-align: center; max-width: 700px; margin: 0 auto;" data-aos="fade-up" data-aos-delay="100">
-        <strong>Troll Sounds respects your privacy.</strong> We don't collect personal data, location information, or browsing habits. All app features work locally on your device.
-      </p>
-      <div style="text-align: center; margin-top: 30px;" data-aos="fade-up" data-aos-delay="200">
-        <a href="#" class="button primary"><i class="fas fa-shield-alt"></i> Read Full Privacy Policy</a>
-      </div>
-    </div>
-  </section>
-
   <footer>
     <div class="container">
-      <p data-aos="fade-up">&copy; 2025 Troll Sounds. All rights reserved.</p>
+      <p data-aos="fade-up" data-i18n="copyright">© 2025 Troll Sounds. Đã đăng ký bản quyền.</p>
       <p style="margin-top: 15px;" data-aos="fade-up" data-aos-delay="100">
-        For support or feedback: <a href="mailto:doquanghieu.dev@gmail.com">doquanghieu.dev@gmail.com</a>
+        <span data-i18n="support-text">Hỗ trợ và phản hồi:</span> <a href="mailto:doquanghieu.dev@gmail.com">doquanghieu.dev@gmail.com</a>
+      </p>
+      <p style="margin-top: 30px;" data-aos="fade-up" data-aos-delay="200">
+        <a href="https://apps.apple.com/vn/app/troll-sounds/id6745689125">
+          <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" alt="Download on the App Store" class="app-store-badge" style="height: 40px;">
+        </a>
       </p>
     </div>
   </footer>
@@ -595,9 +805,10 @@
     // Initialize AOS animations
     AOS.init({
       duration: 800,
-      easing: 'ease',
-      once: true,
-      offset: 100
+      easing: 'ease-out',
+      once: false,
+      offset: 100,
+      delay: 0
     });
     
     // Back to top button
@@ -616,6 +827,170 @@
       window.scrollTo({
         top: 0,
         behavior: 'smooth'
+      });
+    });
+    
+    // Parallax effect
+    document.addEventListener('mousemove', (e) => {
+      const parallaxItems = document.querySelectorAll('.parallax-dot');
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+      
+      parallaxItems.forEach(item => {
+        const speed = 0.03;
+        const x = (window.innerWidth - mouseX * speed) / 100;
+        const y = (window.innerHeight - mouseY * speed) / 100;
+        
+        item.style.transform = `translateX(${x}px) translateY(${y}px)`;
+      });
+    });
+    
+    // Language translation functionality
+    const translations = {
+      'en': {
+        // Header section
+        'header-title': 'Troll Sounds',
+        'header-description': 'Enjoy a collection of funny sounds, voice changers, and unique trolling tools on your device.',
+        'app-store-button': 'Download on App Store',
+
+        // Features section
+        'features-title': 'Key Features',
+        'features-subtitle': 'Troll Sounds provides a unique entertainment experience with a variety of fun tools',
+        
+        'feature-1-title': 'Meme Soundboard',
+        'feature-1-desc': 'Collection of popular meme sounds and effects that you can play instantly with one tap.',
+        
+        'feature-2-title': 'Troll Flash',
+        'feature-2-desc': 'Turn your phone\'s flashlight on and off with sound effects for funny pranks.',
+        
+        'feature-3-title': 'Troll Alarm',
+        'feature-3-desc': 'Set up fake alarms with custom sounds to prank friends and family.',
+        
+        'feature-4-title': 'Voice Activated Sounds',
+        'feature-4-desc': 'Sounds that trigger when you speak, perfect for surprise reactions during conversations.',
+        
+        'feature-5-title': 'Custom Sound Lab',
+        'feature-5-desc': 'Create and customize your own sounds and effects to use in the app.',
+        
+        'feature-6-title': 'MyInstants Integration',
+        'feature-6-desc': 'Access thousands of sounds from MyInstants directly in the app.',
+
+        // Screenshots section
+        'screenshots-title': 'App Preview',
+        'screenshots-subtitle': 'Experience the modern, user-friendly interface with diverse features',
+
+        // Privacy section
+        'privacy-title': 'Privacy First',
+        'privacy-description': '<strong>Troll Sounds respects your privacy.</strong> We don\'t collect personal data, location information, or browsing habits. All app features work locally on your device.',
+        'privacy-button': 'Privacy Policy',
+
+        // Languages section
+        'languages-title': 'Supported Languages',
+        'languages-subtitle': 'Troll Sounds is currently available in the following languages',
+        
+        // Footer
+        'copyright': '© 2025 Troll Sounds. All rights reserved.',
+        'support-text': 'Support and feedback:',
+      },
+      'vi': {
+        // Header section
+        'header-title': 'Troll Sounds',
+        'header-description': 'Tận hưởng kho âm thanh hài hước, trình chỉnh giọng nói, và các công cụ troll độc đáo trên thiết bị của bạn.',
+        'app-store-button': 'Tải trên App Store',
+
+        // Features section
+        'features-title': 'Tính năng nổi bật',
+        'features-subtitle': 'Troll Sounds cung cấp trải nghiệm giải trí độc đáo với nhiều công cụ thú vị',
+        
+        'feature-1-title': 'Meme Soundboard',
+        'feature-1-desc': 'Bộ sưu tập âm thanh meme phổ biến và hiệu ứng mà bạn có thể phát ngay lập tức chỉ với một cú chạm.',
+        
+        'feature-2-title': 'Troll Flash',
+        'feature-2-desc': 'Bật tắt đèn flash của điện thoại với hiệu ứng âm thanh để tạo ra những trò đùa hài hước.',
+        
+        'feature-3-title': 'Troll Alarm',
+        'feature-3-desc': 'Thiết lập báo thức giả với âm thanh tùy chỉnh để tạo bất ngờ cho bạn bè và gia đình.',
+        
+        'feature-4-title': 'Âm thanh kích hoạt bằng giọng nói',
+        'feature-4-desc': 'Âm thanh được kích hoạt khi bạn nói, hoàn hảo cho các phản ứng bất ngờ trong cuộc trò chuyện.',
+        
+        'feature-5-title': 'Phòng thí nghiệm âm thanh',
+        'feature-5-desc': 'Tạo và tùy chỉnh âm thanh và hiệu ứng riêng của bạn để sử dụng trong ứng dụng.',
+        
+        'feature-6-title': 'Tích hợp MyInstants',
+        'feature-6-desc': 'Truy cập hàng nghìn âm thanh từ MyInstants trực tiếp trong ứng dụng.',
+
+        // Screenshots section
+        'screenshots-title': 'Xem trước ứng dụng',
+        'screenshots-subtitle': 'Trải nghiệm giao diện hiện đại, dễ sử dụng với các tính năng đa dạng',
+
+        // Privacy section
+        'privacy-title': 'Quyền riêng tư trên hết',
+        'privacy-description': '<strong>Troll Sounds tôn trọng quyền riêng tư của bạn.</strong> Chúng tôi không thu thập dữ liệu cá nhân, thông tin vị trí, hoặc thói quen duyệt web. Tất cả các tính năng của ứng dụng đều hoạt động cục bộ trên thiết bị của bạn.',
+        'privacy-button': 'Chính sách Quyền riêng tư',
+
+        // Languages section
+        'languages-title': 'Ngôn ngữ hỗ trợ',
+        'languages-subtitle': 'Troll Sounds hiện có sẵn trong các ngôn ngữ sau',
+        
+        // Footer
+        'copyright': '© 2025 Troll Sounds. Đã đăng ký bản quyền.',
+        'support-text': 'Hỗ trợ và phản hồi:',
+      }
+    };
+
+    // Function to apply translations
+    function applyTranslations(language) {
+      // Update all elements with data-i18n attributes
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[language] && translations[language][key]) {
+          if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+            element.placeholder = translations[language][key];
+          } else if (element.innerHTML.includes('</')) { // Check if element contains HTML
+            element.innerHTML = translations[language][key];
+          } else {
+            element.textContent = translations[language][key];
+          }
+        }
+      });
+      
+      // Store the preference
+      localStorage.setItem('preferredLanguage', language);
+    }
+    
+    // Language switcher functionality
+    const languageOptions = document.querySelectorAll('.language-option');
+    
+    // Set initial language based on stored preference or browser default
+    let currentLanguage = localStorage.getItem('preferredLanguage') || 'vi';
+    
+    // Apply initial language
+    document.querySelectorAll('.language-option').forEach(option => {
+      if (option.getAttribute('data-lang') === currentLanguage) {
+        option.classList.add('active');
+      } else {
+        option.classList.remove('active');
+      }
+    });
+    
+    // Apply initial translations
+    applyTranslations(currentLanguage);
+    
+    // Add click event listeners to language options
+    languageOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        // Remove active class from all options
+        languageOptions.forEach(opt => opt.classList.remove('active'));
+        
+        // Add active class to clicked option
+        option.classList.add('active');
+        
+        // Get language code
+        const lang = option.getAttribute('data-lang');
+        
+        // Apply translations
+        applyTranslations(lang);
       });
     });
   </script>
